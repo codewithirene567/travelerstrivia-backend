@@ -21,24 +21,23 @@ ActiveRecord::Schema.define(version: 2020_08_27_012740) do
   create_table "highscores", force: :cascade do |t|
     t.string "name"
     t.string "score"
-    t.integer "question_id_id"
-    t.integer "country_id_id"
+    t.integer "country_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id_id"], name: "index_highscores_on_country_id_id"
-    t.index ["question_id_id"], name: "index_highscores_on_question_id_id"
+    t.index ["country_id"], name: "index_highscores_on_country_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "right"
-    t.string "answers"
-    t.string "wrong"
-    t.string "score"
+    t.string "answer1"
+    t.string "answer2"
+    t.string "answer3"
+    t.integer "country_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_questions_on_country_id"
   end
 
-  add_foreign_key "highscores", "country_ids"
-  add_foreign_key "highscores", "question_ids"
+  add_foreign_key "highscores", "countries"
 end

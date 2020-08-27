@@ -8,7 +8,7 @@
 china = Country.create(name: "China")
 
 
-china_question_1= Question.create(text: "How many people live there?", answers: "a", right: "a", wrong: "b", score: "5/10")
+china_question_1= Question.create(text: "How many people live there?", answer1: "a", answer2: "b", answer3: "c", right: "a", country: china )
 
 
-highscore_for_china = Highscore.create(name: "samplename", score:"10/10")
+highscore_for_china = Highscore.create(name: "samplename", score:"10/10", country: china)
