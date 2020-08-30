@@ -7,9 +7,7 @@ class HighscoresController < ApplicationController
       def create
           highscore = Highscore.new(highscore_params)
           highscore.save
-          highscores = []
-          highscores.push(highscore)
-          render json: HighscoreSerializer.new(highscores)
+          render json: HighscoreSerializer.new(Highscore.all)
 
       end
 
@@ -20,7 +18,7 @@ class HighscoresController < ApplicationController
       end
 
       def highscore_params
-        params.require(:highscore).permit(:name)
+        params.require(:highscore).permit(:name, :score, :country_id)
       end
 
 end
