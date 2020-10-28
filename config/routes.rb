@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'countries#index'
   resources :questions
   resources :highscores
   resources :countries
